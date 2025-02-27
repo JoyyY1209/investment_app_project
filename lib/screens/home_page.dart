@@ -21,9 +21,10 @@ final investmentList = [
     "description": "A high-growth tech investment portfolio...",
     "category": "Technology",
     "company": "TechRise Inc.",
-    "rate": 4.8,
+    "risk": "Medi..",
     "pricePerShare": 150.75,
-    "isFavorite": false
+    "isFavorite": false,
+    "roi" : 6.12,
   },
   {
     "image": "assets/recommended/img2.png",
@@ -31,9 +32,10 @@ final investmentList = [
     "description": "Sustainable energy investments with long-term returns...",
     "category": "Renewable Energy",
     "company": "Green Future Corp.",
-    "rate": 4.6,
+    "risk": "Low",
     "pricePerShare": 89.50,
-    "isFavorite": false
+    "isFavorite": false,
+    "roi" : 3.67,
   },
   {
     "image": "assets/recommended/img3.png",
@@ -41,9 +43,10 @@ final investmentList = [
     "description": "Invest in prime real estate properties...",
     "category": "Real Estate",
     "company": "Urban Estate Ltd.",
-    "rate": 4.3,
+    "risk": "High",
     "pricePerShare": 120.00,
-    "isFavorite": false
+    "isFavorite": false,
+    "roi" : 12.88,
   },
   {
     "image": "assets/recommended/img4.png",
@@ -51,9 +54,10 @@ final investmentList = [
     "description": "Support eco-friendly and ethical fashion brands...",
     "category": "Clothing",
     "company": "GreenWear Ltd.",
-    "rate": 4.2,
+    "risk": "Medi..",
     "pricePerShare": 60.80,
-    "isFavorite": false
+    "isFavorite": false,
+    "roi" : 7.34,
   },
 ];
 

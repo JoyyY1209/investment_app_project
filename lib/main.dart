@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: SplashScreen(check: isFirstTime),
-      home: BottomNav(),
+      home: SplashScreen(check: isFirstTime),
+      //home: BottomNav(),
     );
   }
 }

@@ -187,6 +187,20 @@ class AppWidget{
      );
    }
 
+   static TextStyle QuickSandBlackSize(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.black,
+     );
+   }
+
+   static TextStyle QuickSandWhiteSize(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.white,
+     );
+   }
+
    static TextStyle QuickSandBlackBoldHeadline(){
      return GoogleFonts.quicksand(
        color: Colors.black,

@@ -40,6 +40,7 @@ class _TemplateGreenState extends State<TemplateGreen> {
                   }
                 });
               },
+              widget.data['roi']
             ),
             AppWidget().heightSpace,
             Text(
@@ -63,21 +64,24 @@ class _TemplateGreenState extends State<TemplateGreen> {
             Row(
               children: [
                 Icon(
-                  Icons.grade_rounded,
+                  Icons.star_border_purple500_rounded,
                   color: AppWidget().yellowColor,
                   size: 15.0,
                 ),
                 AppWidget().widthBox(AppWidget().fixPadding * 0.3),
                 Expanded(
                   child: Text(
-                    widget.data['rate']?.toString() ?? '0.0',
-                    style: AppWidget().medium12Black,
+                    widget.data['risk']?.toString() ?? '0.0',
+                    style: TextStyle(
+                      color: widget.data['risk']=="Low"?AppWidget().primaryColor:widget.data['risk']=="Medi.."?AppWidget().yellowColor:AppWidget().redColor,
+                      fontSize: 12,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 AppWidget().width5Space,
                 Text(
-                  "\$${(widget.data['price'] as num?)?.toStringAsFixed(2) ?? '0.00'}",
+                  "Tk ${(widget.data['pricePerShare'] as num?)?.toStringAsFixed(2) ?? '0.00'}",
                   style: AppWidget().semibold14Black,
                 )
               ],
@@ -89,7 +93,7 @@ class _TemplateGreenState extends State<TemplateGreen> {
   }
 }
 
-Widget imageWidget(Map<String, dynamic> itemData, Function() onTap) {
+Widget imageWidget(Map<String, dynamic> itemData, Function() onTap,double roi) {
   return Container(
     padding: EdgeInsets.all(AppWidget().fixPadding * 0.5),
     height: 78.0,
@@ -102,23 +106,55 @@ Widget imageWidget(Map<String, dynamic> itemData, Function() onTap) {
       ),
     ),
     alignment: Alignment.topRight,
-    child: GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 25.0,
-        width: 25.0,
-        decoration: BoxDecoration(
-          color: AppWidget().primaryColor.withOpacity(0.4),
-          borderRadius: BorderRadius.circular(5.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          height: 20.0,
+          width: 45,
+          decoration: BoxDecoration(
+            color: AppWidget().primaryColor.withOpacity(0.6),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          child: Row(
+            children: [
+              AppWidget().width5Space,
+              Expanded(
+                child: Text(
+                  roi.toString() ?? '0.0',
+                  style: AppWidget.QuickSandWhiteSize(12),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              AppWidget().widthBox(AppWidget().fixPadding * 0.3),
+              Icon(
+                Icons.percent_outlined,
+                color: AppWidget().yellowColor,
+                size: 14.0,
+              ),
+            ],
+          ),
         ),
-        child: Icon(
-          itemData['isFavorite'] == true
-              ? CupertinoIcons.heart_fill
-              : CupertinoIcons.heart,
-          color: AppWidget().whiteColor,
-          size: 20.0,
+
+        GestureDetector(
+          onTap: onTap,
+          child: Container(
+            height: 25.0,
+            width: 25.0,
+            decoration: BoxDecoration(
+              color: AppWidget().primaryColor.withOpacity(0.4),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            child: Icon(
+              itemData['isFavorite'] == true
+                  ? CupertinoIcons.heart_fill
+                  : CupertinoIcons.heart,
+              color: AppWidget().whiteColor,
+              size: 20.0,
+            ),
+          ),
         ),
-      ),
+      ],
     ),
   );
 }
