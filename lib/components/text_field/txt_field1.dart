@@ -6,7 +6,7 @@ class TxtField1 extends StatelessWidget {
   final bool obscureText;
 
   const TxtField1({super.key,
-     this.controller,
+    required this.controller,
     required this.hintText,
     required this.obscureText,
   });

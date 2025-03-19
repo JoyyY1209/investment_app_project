@@ -39,6 +39,32 @@ class AppWidget{
      )
    ];
 
+   List<BoxShadow> boxShadow2 = [
+     BoxShadow(
+       color: Color(0xFF9C9C9C).withOpacity(0.2), // Slightly darker for visibility
+       blurRadius: 16.0, // Controls softness
+       spreadRadius: 5.0, // Pushes shadow outward
+       offset: Offset(0, 5), // Moves shadow down slightly
+     )
+   ];
+
+   List<BoxShadow> boxShadow15 = [
+     BoxShadow(
+       color: Color(0xFF9C9C9C).withOpacity(0.2), // Slightly darker for visibility
+       blurRadius: 15.0, // Controls softness
+       spreadRadius: 15.0, // Pushes shadow outward
+       offset: Offset(0, 5), // Moves shadow down slightly
+     )
+   ];
+
+
+   List<BoxShadow> boxShadowPrimary = [
+     BoxShadow(
+       color: Color(0xFF4FAD5A).withOpacity(0.1),
+       blurRadius: 10.0,
+     )
+   ];
+
 
    static TextStyle boldTextFieldStyle(){
     return TextStyle(
@@ -57,6 +83,14 @@ class AppWidget{
         fontFamily: 'Poppins'
     );
   }
+
+   static TextStyle headLineTextFieldStyle18Black(){
+     return GoogleFonts.quicksand(
+         color: Colors.black,
+         fontSize: 18,
+         fontWeight: FontWeight.bold,
+     );
+   }
 
   static TextStyle customHeadLineTextFieldStyle(Color color,double size){
     return TextStyle(
@@ -176,7 +210,7 @@ class AppWidget{
    static TextStyle QuickSandGreySize(double x){
      return GoogleFonts.quicksand(
      fontSize: x,
-       color: Colors.grey[500],
+       color: Color(0xFF9C9C9C),
      );
    }
 
@@ -184,6 +218,71 @@ class AppWidget{
      return GoogleFonts.quicksand(
        fontSize: x,
        color: Color(0xFF4FAD5A),
+     );
+   }
+
+   static TextStyle QuickSandBlackSizeBold(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.black,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle QuickSandWhiteSizeBold(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.white,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle QuickSandBlack87SizeBold(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.black87,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle QuickSandBlack45SizeBold(double x) {
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.black45,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle QuickSandBlack54SizeBold(double x) {
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.black54,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle QuickSandBlack38SizeBold(double x) {
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Colors.black38,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+
+   static TextStyle QuickSandGreenSizeBold(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Color(0xFF4FAD5A),
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle QuickSandGreySizeBold(double x){
+     return GoogleFonts.quicksand(
+       fontSize: x,
+       color: Color(0xFF9C9C9C),
+       fontWeight: FontWeight.bold,
      );
    }
 
@@ -208,6 +307,113 @@ class AppWidget{
        fontSize: 18,
      );
    }
+
+   static TextStyle KumbhSansGrey(){
+     return GoogleFonts.kumbhSans(
+       color: Colors.grey[500],
+     );
+   }
+
+   static TextStyle KumbhSansGreySize(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Color(0xFF9C9C9C),
+     );
+   }
+
+   static TextStyle KumbhSansGreenSize(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Color(0xFF4FAD5A),
+     );
+   }
+
+   static TextStyle KumbhSansBlackSizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.black,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansWhiteSizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.white,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansBlack87SizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.black87,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansBlack45SizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.black45,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansBlack54SizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.black54,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansBlack38SizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.black38,
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansGreenSizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Color(0xFF4FAD5A),
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansGreySizeBold(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Color(0xFF9C9C9C),
+       fontWeight: FontWeight.bold,
+     );
+   }
+
+   static TextStyle KumbhSansBlackSize(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.black,
+     );
+   }
+
+   static TextStyle KumbhSansWhiteSize(double x){
+     return GoogleFonts.kumbhSans(
+       fontSize: x,
+       color: Colors.white,
+     );
+   }
+
+   static TextStyle KumbhSansBlackBoldHeadline(){
+     return GoogleFonts.kumbhSans(
+       color: Colors.black,
+       fontWeight: FontWeight.bold,
+       fontSize: 18,
+     );
+   }
+
 
    TextStyle extrabold30White =
    TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.w800);
@@ -311,11 +517,20 @@ class AppWidget{
    TextStyle medium16Black =
    TextStyle(color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.w500);
 
+   TextStyle medium16Primary =
+   TextStyle(color: Color(0xFF4FAD5A), fontSize: 16.0, fontWeight: FontWeight.w500);
+
    TextStyle medium14Black =
    TextStyle(color: Colors.black, fontSize: 14.0, fontWeight: FontWeight.w500);
 
+   TextStyle medium14Primary =
+   TextStyle(color: Color(0xFF4FAD5A), fontSize: 14.0, fontWeight: FontWeight.w500);
+
    TextStyle medium12Black =
    TextStyle(color: Colors.black, fontSize: 12.0, fontWeight: FontWeight.w500);
+
+   TextStyle medium12Primary =
+   TextStyle(color: Color(0xFF4FAD5A), fontSize: 12.0, fontWeight: FontWeight.w500);
 
    TextStyle medium15Black =
    TextStyle(color: Color(0xFF333333), fontSize: 15.0, fontWeight: FontWeight.w500);

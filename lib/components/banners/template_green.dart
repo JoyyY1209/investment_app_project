@@ -1,26 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:investment_app_project/db/favourite_investment_list.dart';
+import 'package:investment_app_project/screens/investment_details.dart';
 import 'package:investment_app_project/widget/support_widget.dart';
 
 class TemplateGreen extends StatefulWidget {
-  final Map<String, dynamic> data; // Ensure data is a Map
+  final Map<String, dynamic> data;
+  int index;// Ensure data is a Map
 
-  const TemplateGreen({super.key, required this.data});
+  TemplateGreen({super.key, required this.data,required this.index});
 
   @override
   State<TemplateGreen> createState() => _TemplateGreenState();
 }
 
 class _TemplateGreenState extends State<TemplateGreen> {
+  final favinvestment=FavInvestment();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/foodDetail');
+        Get.to(InvestmentDetails(data: widget.data,index: widget.index,));
       },
       child: Container(
         width: 160,
-        margin: EdgeInsets.only(right:  AppWidget().fixPadding),
+        margin: EdgeInsets.only(right:  AppWidget().fixPadding,bottom: 10),
         padding: EdgeInsets.all(AppWidget().fixPadding),
         decoration: BoxDecoration(
           color: AppWidget().whiteColor,
@@ -34,6 +40,13 @@ class _TemplateGreenState extends State<TemplateGreen> {
             imageWidget(
               widget.data,
                   () {
+                if(widget.data['isFavorite']){
+                  favinvestment.removeInvestmentById(widget.data['id']);
+                }
+                else {
+                  favinvestment.addInvestment(widget.data);
+                }
+                print(favinvestment.favoriteInvestments.length);
                 setState(() {
                   if (widget.data.containsKey('isFavorite') && widget.data['isFavorite'] is bool) {
                     widget.data['isFavorite'] = !(widget.data['isFavorite'] as bool);
@@ -51,7 +64,7 @@ class _TemplateGreenState extends State<TemplateGreen> {
             AppWidget().heightBox(AppWidget().fixPadding * 0.3),
             Text(
               widget.data['company']?.toString() ?? 'No Description',
-              style: AppWidget().medium12Black,
+              style: AppWidget().medium12Primary,
               overflow: TextOverflow.ellipsis,
             ),
             AppWidget().heightBox(AppWidget().fixPadding * 0.3),

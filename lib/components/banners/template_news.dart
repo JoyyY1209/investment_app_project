@@ -1,19 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:investment_app_project/db/bookmarked_news_list.dart';
 import 'package:investment_app_project/widget/support_widget.dart';
+
+import '../../screens/news_details.dart';
 class TemplateNews extends StatefulWidget {
   final data;
-  TemplateNews({super.key,required this.data});
+  int index;
+  TemplateNews({super.key,required this.data,required this.index});
 
   @override
   State<TemplateNews> createState() => _TemplateNewsState();
 }
 
 class _TemplateNewsState extends State<TemplateNews> {
+  final bookednews=BookmarkedNews();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Get.to(NewsDetails(data: widget.data,index: widget.index,));
+      },
       child: Container(
         width: AppWidget().screenWidth,
         margin: EdgeInsets.only(bottom:  AppWidget().fixPadding),
@@ -26,6 +35,14 @@ class _TemplateNewsState extends State<TemplateNews> {
         child: Row(
           children: [
             imageWidget(widget.data, (){
+              if(widget.data['bookmarked'])
+                {
+                  bookednews.removeNewsById(widget.data['id']);
+                }
+              else{
+                bookednews.addNews(widget.data);
+              }
+              print(bookednews.bookmarkedNewsList.length);
               setState(() {
                 if(widget.data.containsKey('bookmarked') && widget.data['bookmarked'] is bool)
                   {
